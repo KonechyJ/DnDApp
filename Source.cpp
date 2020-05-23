@@ -6,6 +6,7 @@ using namespace std;
 #include <ctime>	// for time function
 #include <iomanip>
 #include <vector>
+#include <cstdio>
 
 
 class player 
@@ -13,18 +14,19 @@ class player
 private:
 	//basic info 
 	string playerName;
-	int playerHealth;
 	string playerRace;
+	int playerHealth;
 	int playerArmorScore;
 	int playerSpeed;
 
 	//player abilites
-	int playerCharisma;
-	int playerWisdom;
-	int playerIntelligence;
-	int playerDexerity;
 	int playerStrength;
+	int playerDexerity;
 	int playerConstitution;
+	int playerIntelligence;
+	int playerWisdom;
+	int playerCharisma;
+	
 public:
 	void setName(string name)
 	{
@@ -43,6 +45,91 @@ public:
 	{
 		return playerHealth;
 	}
+
+	void setRace(string race)
+	{
+		playerRace = race;
+	}
+	string getRace() 
+	{
+		return playerRace;
+	}
+
+	void setArmorScoce(int armorScore) 
+	{
+		playerArmorScore = armorScore;
+	}
+	int getArmorScore()
+	{
+		return playerArmorScore;
+	}
+
+	void setSpeed(int speed) 
+	{
+		playerSpeed = speed;
+	}
+	int getSpeed()
+	{
+		return playerSpeed;
+	}
+
+	void setStrength(int strength) 
+	{
+		playerStrength = strength;
+	}
+	int getStrength() 
+	{
+		return playerStrength;
+	}
+
+	void setDexerity(int dex)
+	{
+		playerDexerity = dex;
+	}
+	int getDexerity() 
+	{
+		return playerDexerity;
+	}
+
+	void setConstitution(int constituion) 
+	{
+		playerConstitution = constituion;
+	}
+	int getConstitution()
+	{
+		return playerConstitution;
+	}
+
+	void setIntelligence(int intelligence) 
+	{
+		playerIntelligence = intelligence;
+	}
+	int getIntelligence() 
+	{
+		return playerIntelligence;
+	}
+
+	void setWidom(int wisdom)
+	{
+		playerWisdom = wisdom;
+	}
+	int getWisdom()
+	{
+		return playerWisdom;
+	}
+
+	void setCharisma(int charisma) 
+	{
+		playerCharisma = charisma;
+	}
+	int getCharisma() 
+	{
+		return playerCharisma;
+	}
+
+
+
+
 	/*
 
 	union MyUnion
@@ -60,8 +147,8 @@ class enemy
 {
 	//basic info 
 	string enemyName;
-	int enemyHealth;
 	string enemyRace;
+	int enemyHealth;
 	int enemyArmorScore;
 	int enemySpeed;
 
@@ -94,11 +181,13 @@ int main()
 	int menuChoice;
 	char yourAnswer;
 	int numPlayers;
-	string tempPlayerName;
+	//string tempPlayerName;
+	int playerToChange;
 
 	cout << "How many players are playing?" << endl;
 	cin >> numPlayers;
-	vector<player>currentPlayers = vector<player>(numPlayers);
+	//vector<player>currentPlayers = vector<player>(numPlayers);
+	vector<player>currentPlayers;
 	system("CLS");
 	
 	do
@@ -126,42 +215,140 @@ int main()
 			{
 				string strInput;
 				int intInput;
+
 				cout << "What is their name?" << endl;
 				cin.ignore();
 				getline(cin, strInput);
 				x.setName(strInput);
-				
 
+				cout << "What is their Race?" << endl;
+				cin.ignore();
+				getline(cin, strInput);
+				x.setRace(strInput);
+				
 				cout << "Enter Players Health: " << endl;
 				cin >> intInput;
 				x.setHealth(intInput);
+
+				cout << "Enter Players Armor Score: " << endl;
+				cin >> intInput;
+				x.setArmorScore(intInput);
+
+				cout << "Enter Players Speed: " << endl;
+				cin >> intInput;
+				x.setSpeed(intInput);
+
+				cout << "Enter Players Strength: " << endl;
+				cin >> intInput;
+				x.setStrength(intInput);
+
+				cout << "Enter Players Dexerity: " << endl;
+				cin >> intInput;
+				x.setDexerity(intInput);
+
+				cout << "Enter Players Constituion: " << endl;
+				cin >> intInput;
+				x.setConstituion(intInput);
+
+				cout << "Enter Players Intelligence: " << endl;
+				cin >> intInput;
+				x.setIntelligence(intInput);
+
+				cout << "Enter Players Wisdom: " << endl;
+				cin >> intInput;
+				x.setWisdom(intInput);
+
+				cout << "Enter Players Charisma: " << endl;
+				cin >> intInput;
+				x.setCharisma(intInput);
 			}
-
-
-			
-
 			break;
 		case 2:
+
+			char playerChangeAnswer;
 			cout << "To change a players stats, please type in the player's (Or enemies) name " << endl;
-			cin >> tempPlayerName;
+			cin >> playerToChange;
 			// compare the names and pull up the stats of the player and run a for loop to reassign the stats wanted.
 
 			//vector<player>::iterator itPlayer;
 			//itPlayer = find(currentPlayers.begin(), currentPlayers.end(), ("TEST"));
 
 			/*
-			 cout the vector of names, ask the user which name they want to change, set their answer to the equal to the size of current players
+			 cout the vector of names, ask the user which name they want to change,
+			 set their answer to the equal to the size of current players
 			 and then iterate through their stats to change whatever needed
 
 
 			*/
 
+			do{
+				system("CLS");
+				for (int i = 0; i < numPlayers; i++)
+				{
+					currentPlayers[i];
+					cout << endl;
+				}
 
-			for (int i = 0; i < 10; i++)
-			{
-				currentPlayers[i];
-				cout << endl;
-			}
+				cout << "Now, which player would you like to change?" << endl;
+				cin >> playerToChange;
+
+				for (int i = 0; i < 1; i++) 
+				{
+					string strInput;
+					int intInput;
+
+					cout << "What is their name?" << endl;
+					cin.ignore();
+					getline(cin, strInput);
+					currentPlayers[playerToChange].setName(strInput);
+
+					cout << "What is their Race?" << endl;
+					cin.ignore();
+					getline(cin, strInput);
+					currentPlayers[playerToChange].setRace(strInput);
+
+					cout << "Enter Players Health: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setHealth(intInput);
+
+					cout << "Enter Players Armor Score: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setArmorScore(intInput);
+
+					cout << "Enter Players Speed: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setSpeed(intInput);
+
+					cout << "Enter Players Strength: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setStrength(intInput);
+
+					cout << "Enter Players Dexerity: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setDexerity(intInput);
+
+					cout << "Enter Players Constituion: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setConstituion(intInput);
+
+					cout << "Enter Players Intelligence: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setIntelligence(intInput);
+
+					cout << "Enter Players Wisdom: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setWisdom(intInput);
+
+					cout << "Enter Players Charisma: " << endl;
+					cin >> intInput;
+					currentPlayers[playerToChange].setCharisma(intInput);
+
+				}
+
+				cout << "Would you like to change another?" << endl;
+				cin >> playerChangeAnswer;
+
+			} while (toupper(yourAnswer == 'y'));
 
 			break;
 		case 3:
@@ -175,24 +362,35 @@ int main()
 			for (int i = 0; i < currentPlayers.size; i++)
 			{
 				currentPlayers[i].getName();
+				currentPlayers[i].getRace();
 				currentPlayers[i].getHealth();
+				currentPlayers[i].getArmorScore();
+				currentPlayers[i].getSpeed();
 
+				currentPlayers[i].getStrength();
+				currentPlayers[i].getDexerity();
+				currentPlayers[i].getConstituion();
+				currentPlayers[i].getIntelligence();
+				currentPlayers[i].getWisdom();
+				currentPlayers[i].getCharisma();
 				cout << endl;
 			}
 			break;
 		case 6:
-			cout << endl << "Hit return to return to menu...";
-			system("CLS");
+			cout << endl << "Exiting Program";
+			system.exit();
 			break;
 		default:
 			cout << "That is not a valid answer Kinder, Try again." << endl;
 		}
 
-		cout << "Do you want to roll again kinder? Y or N?" << endl;
+		cout << "Do you want to return to menu? Y or N?" << endl;
 		cin >> yourAnswer;
+		system("CLS");
 
 	} while (toupper(yourAnswer == 'y'));
 
+	cout << endl << "Exiting Program";
 
 	return 0;
 	system("pause");
