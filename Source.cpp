@@ -169,6 +169,7 @@ void eightSidedDie(int min, int max, int diceRoll, int timesRolled);
 void tenSidedDie(int min, int max, int diceRoll, int timesRolled);
 void twelveSidedDie(int min, int max, int diceRoll, int timesRolled);
 void twentySidedDie(int min, int max, int diceRoll, int timesRolled);
+void rollDice(int min, int max, int diceRoll, int timesRolled);
 void displayMenu();
 void displayMainMenu();
 void rollDice();
@@ -183,6 +184,8 @@ int main()
 	int numPlayers;
 	//string tempPlayerName;
 	int playerToChange;
+	int min; 
+	int max;
 
 	cout << "How many players are playing?" << endl;
 	cin >> numPlayers;
@@ -193,7 +196,6 @@ int main()
 	
 	do
 	{
-
 		cout << "Hello and Welcome to Maddys DND Program." << endl << endl;
 		displayMainMenu();
 
@@ -204,6 +206,7 @@ int main()
 			cin >> menuChoice;
 		}
 
+		system("CLS");
 
 		switch (menuChoice)
 		{
@@ -224,7 +227,6 @@ int main()
 				x.setName(strInput);
 
 				cout << "What is their Race?" << endl;
-				cin.ignore();
 				getline(cin, strInput);
 				x.setRace(strInput);
 				
@@ -275,24 +277,21 @@ int main()
 
 			for (int i = 0; i < currentPlayers.size(); i++)
 			{
+				cout << "Player " << setw(10) << right << currentPlayers.size() << endl;
+				cout << "Name: " << setw(10) << right << currentPlayers[i].getName() << endl;
+				cout << "Race: " << setw(10) << right << currentPlayers[i].getRace() << endl;
+				cout << "Health: " << setw(10) << right << currentPlayers[i].getHealth() << endl;
+				cout << "Armor Score: " << setw(10) << right << currentPlayers[i].getArmorScore() << endl;
+				cout << "Speed: " << setw(10) << currentPlayers[i].getSpeed() << endl;
 
-				currentPlayers[i].getName();
-				currentPlayers[i].getRace();
-				currentPlayers[i].getHealth();
-				currentPlayers[i].getArmorScore();
-				currentPlayers[i].getSpeed();
-
-				currentPlayers[i].getStrength();
-				currentPlayers[i].getDexerity();
-				currentPlayers[i].getConstitution();
-				currentPlayers[i].getIntelligence();
-				currentPlayers[i].getWisdom();
-				currentPlayers[i].getCharisma();
+				cout << "Strength: " << setw(10) << right << currentPlayers[i].getStrength() << endl;
+				cout << "Dexerity: " << setw(10) << right << currentPlayers[i].getDexerity() << endl;
+				cout << "Constitution: " << setw(10) << right << currentPlayers[i].getConstitution() << endl;
+				cout << "Intelligence: " << setw(10) << right << currentPlayers[i].getIntelligence() << endl;
+				cout << "Wisdom: " << setw(10) << right << currentPlayers[i].getWisdom() << endl;
+				cout << "Charisma: " << setw(10) << right << currentPlayers[i].getCharisma() << endl;
 				cout << endl;
 			}
-
-			cout << "To change a players stats, please tell me the player's (Or enemies) number " << endl;
-			cin >> playerToChange;
 
 			// compare the names and pull up the stats of the player and run a for loop to reassign the stats wanted.
 
@@ -308,77 +307,79 @@ int main()
 			*/
 
 			do{
-				system("CLS");
-				for (int i = 0; i < numPlayers; i++)
-				{
-					currentPlayers[i];
-					cout << endl;
-				}
+				
+				
 
 				cout << "Now, which player would you like to change?" << endl;
 				cin >> playerToChange;
 
-				for (int i = 0; i < 1; i++) 
-				{
+			
 					string strInput;
 					int intInput;
 
 					cout << "What is their name?" << endl;
 					cin.ignore();
 					getline(cin, strInput);
-					currentPlayers[playerToChange].setName(strInput);
+					currentPlayers[playerToChange - 1].setName(strInput);
 
 					cout << "What is their Race?" << endl;
 					cin.ignore();
 					getline(cin, strInput);
-					currentPlayers[playerToChange].setRace(strInput);
+					currentPlayers[playerToChange - 1].setRace(strInput);
 
 					cout << "Enter Players Health: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setHealth(intInput);
+					currentPlayers[playerToChange - 1].setHealth(intInput);
 
 					cout << "Enter Players Armor Score: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setArmorScore(intInput);
+					currentPlayers[playerToChange - 1].setArmorScore(intInput);
 
 					cout << "Enter Players Speed: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setSpeed(intInput);
+					currentPlayers[playerToChange - 1].setSpeed(intInput);
 
 					cout << "Enter Players Strength: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setStrength(intInput);
+					currentPlayers[playerToChange - 1].setStrength(intInput);
 
 					cout << "Enter Players Dexerity: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setDexerity(intInput);
+					currentPlayers[playerToChange - 1].setDexerity(intInput);
 
 					cout << "Enter Players Constituion: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setConstitution(intInput);
+					currentPlayers[playerToChange - 1].setConstitution(intInput);
 
 					cout << "Enter Players Intelligence: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setIntelligence(intInput);
+					currentPlayers[playerToChange - 1].setIntelligence(intInput);
 
 					cout << "Enter Players Wisdom: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setWisdom(intInput);
+					currentPlayers[playerToChange - 1].setWisdom(intInput);
 
 					cout << "Enter Players Charisma: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setCharisma(intInput);
-
-				}
+					currentPlayers[playerToChange - 1].setCharisma(intInput);
 
 				cout << "Would you like to change another?" << endl;
 				cin >> playerChangeAnswer;
+
+				system("CLS");
 
 			} while (toupper(yourAnswer == 'y'));
 
 			break;
 		case 3:
 			// take the players stats and the enenmy stats and roll a dice to see which person is favor in the interaction
+
+			// roll a d20
+			// list of stats numbered
+			// pick a stat to compare to enenmy
+			// add your roll plus your stat and compare to enemy stat and roll
+
+
 			break;
 		case 4:
 			rollDice();
@@ -387,18 +388,20 @@ int main()
 			// just create a function to display all the different player stats and current enemny stats
 			for (int i = 0; i < currentPlayers.size(); i++)
 			{
-				currentPlayers[i].getName();
-				currentPlayers[i].getRace();
-				currentPlayers[i].getHealth();
-				currentPlayers[i].getArmorScore();
-				currentPlayers[i].getSpeed();
 
-				currentPlayers[i].getStrength();
-				currentPlayers[i].getDexerity();
-				currentPlayers[i].getConstitution();
-				currentPlayers[i].getIntelligence();
-				currentPlayers[i].getWisdom();
-				currentPlayers[i].getCharisma();
+				cout << "Player " << setw(10) << right << currentPlayers.size() << endl;
+				cout << "Name: " << setw(10) << right << currentPlayers[i].getName() << endl;
+				cout << "Race: " << setw(10) << right << currentPlayers[i].getRace() << endl;
+				cout << "Health: " << setw(10) << right << currentPlayers[i].getHealth() << endl;
+				cout << "Armor Score: " << setw(10) << right << currentPlayers[i].getArmorScore() << endl;
+				cout << "Speed: " << setw(10) << currentPlayers[i].getSpeed() << endl;
+
+				cout << "Strength: " << setw(10) << right << currentPlayers[i].getStrength() << endl;
+				cout << "Dexerity: " << setw(10) << right << currentPlayers[i].getDexerity() << endl;
+				cout << "Constitution: " << setw(10) << right << currentPlayers[i].getConstitution() << endl;
+				cout << "Intelligence: " << setw(10) << right << currentPlayers[i].getIntelligence() << endl;
+				cout << "Wisdom: " << setw(10) << right << currentPlayers[i].getWisdom() << endl;
+				cout << "Charisma: " << setw(10) << right << currentPlayers[i].getCharisma() << endl;
 				cout << endl;
 			}
 			break;
@@ -452,84 +455,18 @@ void displayMainMenu()
 	return;
 }
 
-void fourSidedDie(int min, int max, int diceRoll, int timesRolled)
+void rollDice(int min, int max, int diceRoll, int timesRolled)
 {
-	min = 1;
-	max = 4;
 	for (int i = 1; i <= timesRolled; i++)
 	{
 		diceRoll = (rand() % (max - min + 1)) + min;
 		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
-
+		cout << "Roll Number " << i << " is..." << diceRoll << endl;
 	}
+	cout << endl << endl;
 	return;
 }
-void sixSidedDie(int min, int max, int diceRoll, int timesRolled)
-{
-	min = 1;
-	max = 6;
-	for (int i = 1; i <= timesRolled; i++)
-	{
-		diceRoll = (rand() % (max - min + 1)) + min;
-		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
 
-	}
-	return;
-}
-void eightSidedDie(int min, int max, int diceRoll, int timesRolled)
-{
-	min = 1;
-	max = 8;
-	for (int i = 1; i <= timesRolled; i++)
-	{
-		diceRoll = (rand() % (max - min + 1)) + min;
-		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
-
-	}
-	return;
-}
-void tenSidedDie(int min, int max, int diceRoll, int timesRolled)
-{
-	min = 1;
-	max = 10;
-	for (int i = 1; i <= timesRolled; i++)
-	{
-		diceRoll = (rand() % (max - min + 1)) + min;
-		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
-
-	}
-	return;
-}
-void twelveSidedDie(int min, int max, int diceRoll, int timesRolled)
-{
-	min = 1;
-	max = 12;
-	for (int i = 1; i <= timesRolled; i++)
-	{
-		diceRoll = (rand() % (max - min + 1)) + min;
-		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
-
-	}
-	return;
-}
-void twentySidedDie(int min, int max, int diceRoll, int timesRolled)
-{
-	min = 1;
-	max = 20;
-	for (int i = 1; i <= timesRolled; i++)
-	{
-		diceRoll = (rand() % (max - min + 1)) + min;
-		cout << endl;
-		cout << " Roll Number " << i << " is..." << diceRoll << endl;
-
-	}
-	return;
-}
 
 
 void rollDice()
@@ -553,38 +490,57 @@ void rollDice()
 			cin >> yourChoice;
 		}
 
+		
 
 		switch (yourChoice)
 		{
 		case 1:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			fourSidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 4;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 2:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			sixSidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 6;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 3:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			eightSidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 8;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 4:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			tenSidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 10;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 5:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			twelveSidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 12;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 6:
 			cout << "How many times would you like to roll?" << endl;
 			cin >> timesRolled;
-			twentySidedDie(min, max, diceRoll, timesRolled);
+			min = 1;
+			max = 20;
+			system("cls");
+			rollDice(min, max, diceRoll, timesRolled);
 			break;
 		case 7:
 			cout << "Auf Wiedersehen Kinder!" << endl;
