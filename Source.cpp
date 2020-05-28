@@ -26,6 +26,10 @@ private:
 	int playerIntelligence;
 	int playerWisdom;
 	int playerCharisma;
+
+
+
+	//// add class info
 	
 public:
 	void setName(string name)
@@ -313,7 +317,7 @@ int main()
 				cout << "Now, which player would you like to change?" << endl;
 				cin >> playerToChange;
 
-			
+			// make a switch to chnage only the stats they want to change
 					string strInput;
 					int intInput;
 
