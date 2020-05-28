@@ -55,7 +55,7 @@ public:
 		return playerRace;
 	}
 
-	void setArmorScoce(int armorScore) 
+	void setArmorScore(int armorScore) 
 	{
 		playerArmorScore = armorScore;
 	}
@@ -109,7 +109,7 @@ public:
 		return playerIntelligence;
 	}
 
-	void setWidom(int wisdom)
+	void setWisdom(int wisdom)
 	{
 		playerWisdom = wisdom;
 	}
@@ -186,8 +186,9 @@ int main()
 
 	cout << "How many players are playing?" << endl;
 	cin >> numPlayers;
-	//vector<player>currentPlayers = vector<player>(numPlayers);
-	vector<player>currentPlayers;
+	vector<player>currentPlayers = vector<player>(numPlayers);
+	// this didnt work on my laptop
+	//vector<player>currentPlayers;
 	system("CLS");
 	
 	do
@@ -215,8 +216,9 @@ int main()
 			{
 				string strInput;
 				int intInput;
+				int count = 1;
 
-				cout << "What is their name?" << endl;
+				cout << "What is player " << count<< "'s name?" << endl;
 				cin.ignore();
 				getline(cin, strInput);
 				x.setName(strInput);
@@ -248,7 +250,7 @@ int main()
 
 				cout << "Enter Players Constituion: " << endl;
 				cin >> intInput;
-				x.setConstituion(intInput);
+				x.setConstitution(intInput);
 
 				cout << "Enter Players Intelligence: " << endl;
 				cin >> intInput;
@@ -261,13 +263,37 @@ int main()
 				cout << "Enter Players Charisma: " << endl;
 				cin >> intInput;
 				x.setCharisma(intInput);
+
+				count++;
 			}
 			break;
 		case 2:
 
+			// This doesnt work
+
 			char playerChangeAnswer;
-			cout << "To change a players stats, please type in the player's (Or enemies) name " << endl;
+
+			for (int i = 0; i < currentPlayers.size(); i++)
+			{
+
+				currentPlayers[i].getName();
+				currentPlayers[i].getRace();
+				currentPlayers[i].getHealth();
+				currentPlayers[i].getArmorScore();
+				currentPlayers[i].getSpeed();
+
+				currentPlayers[i].getStrength();
+				currentPlayers[i].getDexerity();
+				currentPlayers[i].getConstitution();
+				currentPlayers[i].getIntelligence();
+				currentPlayers[i].getWisdom();
+				currentPlayers[i].getCharisma();
+				cout << endl;
+			}
+
+			cout << "To change a players stats, please tell me the player's (Or enemies) number " << endl;
 			cin >> playerToChange;
+
 			// compare the names and pull up the stats of the player and run a for loop to reassign the stats wanted.
 
 			//vector<player>::iterator itPlayer;
@@ -329,7 +355,7 @@ int main()
 
 					cout << "Enter Players Constituion: " << endl;
 					cin >> intInput;
-					currentPlayers[playerToChange].setConstituion(intInput);
+					currentPlayers[playerToChange].setConstitution(intInput);
 
 					cout << "Enter Players Intelligence: " << endl;
 					cin >> intInput;
@@ -359,7 +385,7 @@ int main()
 			break;
 		case 5:
 			// just create a function to display all the different player stats and current enemny stats
-			for (int i = 0; i < currentPlayers.size; i++)
+			for (int i = 0; i < currentPlayers.size(); i++)
 			{
 				currentPlayers[i].getName();
 				currentPlayers[i].getRace();
@@ -369,7 +395,7 @@ int main()
 
 				currentPlayers[i].getStrength();
 				currentPlayers[i].getDexerity();
-				currentPlayers[i].getConstituion();
+				currentPlayers[i].getConstitution();
 				currentPlayers[i].getIntelligence();
 				currentPlayers[i].getWisdom();
 				currentPlayers[i].getCharisma();
@@ -378,7 +404,7 @@ int main()
 			break;
 		case 6:
 			cout << endl << "Exiting Program";
-			system.exit();
+			exit(0);
 			break;
 		default:
 			cout << "That is not a valid answer Kinder, Try again." << endl;
