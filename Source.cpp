@@ -325,7 +325,7 @@ int main()
 				// assign only the number given
 
 				/*
-			
+			  
 					string strInput;
 					int intInput;
 
