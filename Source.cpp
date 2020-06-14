@@ -317,7 +317,15 @@ int main()
 				cout << "Now, which player would you like to change?" << endl;
 				cin >> playerToChange;
 
-			// make a switch to chnage only the stats they want to change
+				cout << "which Stat would like to change? Enter the Number." << endl;
+
+
+				// get the players stats based on there numbered order, maybe have the number entered set to players.size and list only there stats
+				// then, have then pick the stat again and use the number from there answer to use in a switch statement. 
+				// assign only the number given
+
+				/*
+			
 					string strInput;
 					int intInput;
 
@@ -366,7 +374,7 @@ int main()
 					cout << "Enter Players Charisma: " << endl;
 					cin >> intInput;
 					currentPlayers[playerToChange - 1].setCharisma(intInput);
-
+					*/
 				cout << "Would you like to change another?" << endl;
 				cin >> playerChangeAnswer;
 
