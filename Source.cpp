@@ -319,7 +319,23 @@ int main()
 
 				cout << "which Stat would like to change? Enter the Number." << endl;
 
+				for (int i = 0; i < currentPlayers[playerToChange]; i++)
+				{
+					cout << "Player " << setw(10) << right << currentPlayers.size() << endl;
+					cout << "Name: " << setw(10) << right << currentPlayers[i].getName() << endl;
+					cout << "Race: " << setw(10) << right << currentPlayers[i].getRace() << endl;
+					cout << "Health: " << setw(10) << right << currentPlayers[i].getHealth() << endl;
+					cout << "Armor Score: " << setw(10) << right << currentPlayers[i].getArmorScore() << endl;
+					cout << "Speed: " << setw(10) << currentPlayers[i].getSpeed() << endl;
 
+					cout << "Strength: " << setw(10) << right << currentPlayers[i].getStrength() << endl;
+					cout << "Dexerity: " << setw(10) << right << currentPlayers[i].getDexerity() << endl;
+					cout << "Constitution: " << setw(10) << right << currentPlayers[i].getConstitution() << endl;
+					cout << "Intelligence: " << setw(10) << right << currentPlayers[i].getIntelligence() << endl;
+					cout << "Wisdom: " << setw(10) << right << currentPlayers[i].getWisdom() << endl;
+					cout << "Charisma: " << setw(10) << right << currentPlayers[i].getCharisma() << endl;
+					cout << endl;
+				}
 				// get the players stats based on there numbered order, maybe have the number entered set to players.size and list only there stats
 				// then, have then pick the stat again and use the number from there answer to use in a switch statement. 
 				// assign only the number given
